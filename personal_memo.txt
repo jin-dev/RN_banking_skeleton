@@ -1,0 +1,12 @@
+//References
+
+https://www.youtube.com/watch?v=vlwiYy8WnVA
+
+
+//The Source Codes
+
+https://www.patreon.com/posts/43236091
+
+
+//Start with JS and translate to JSX when compledted the code.
+//@Expo icons --> react-native-vector-icons

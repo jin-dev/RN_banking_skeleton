@@ -27,17 +27,23 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import TouchScreen from './src/screens/TouchScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
+  
+  const AppStack = createStackNavigator();
+  
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      
-      <TouchScreen/>
-      
-      
+      <NavigationContainer>
+        <AppStack.Navigator headerMode="none">
+          <AppStack.Screen name="Touch" component={TouchScreen} />
+        </AppStack.Navigator>
+      </NavigationContainer>
     </>
   );
 };
