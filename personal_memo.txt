@@ -10,3 +10,7 @@ https://www.patreon.com/posts/43236091
 
 //Start with JS and translate to JSX when compledted the code.
 //@Expo icons --> react-native-vector-icons
+
+
+// React Native structure
+https://saurabhshah23.medium.com/react-native-application-architecture-folder-structure-with-design-pattern-corporate-standards-efad5b230f07
