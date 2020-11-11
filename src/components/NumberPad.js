@@ -1,5 +1,4 @@
 import React from "react";
-import { View, buttons } from 'react-native';
 import styled from "styled-components";
 import Text from './Text'
 

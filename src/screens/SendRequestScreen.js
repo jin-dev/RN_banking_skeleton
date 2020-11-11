@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Text from '../components/Text';
 import NumberPad from '../components/NumberPad';
 
-const SendRequestScreen = () => {
+const SendRequestScreen = ( {navigation} ) => {
     const [amount, setAmount] = useState("0");
 
     const convertToDollars = (currentAmount) => {
@@ -16,7 +16,7 @@ const SendRequestScreen = () => {
             return index != 10 ? prev + item : prev.slice(0, prev.length - 1);
         });
     };
-
+  //onLongPress={() => navigation.navigate("Tabs")} delayPressIn={0}
     return (
         <Container>
             <Text center large heavy margin="16px 0 0 0">
@@ -39,7 +39,9 @@ const SendRequestScreen = () => {
                         Jin
                     </Text>
                 </UserDetails>
-                <Text>Edit</Text>
+                <LogOut onLongPress={() => navigation.navigate("Touch")} delayPressIn={0}>
+                <Text >Log Out</Text>
+                </LogOut>
             </User>
 
             <Send>
@@ -53,6 +55,13 @@ const SendRequestScreen = () => {
         
     )
 }
+const LogOut = styled.TouchableOpacity`
+    width: 54px;
+    height: 20px;
+    margin-right: 12px;
+    background-color: #5196f4;
+    border-radius: 4px;
+`
 
 const Container = styled.SafeAreaView`
     flex: 1;
