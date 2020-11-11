@@ -94,10 +94,9 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <NavigationContainer>
         <AppStack.Navigator headerMode="none">
-          <AppStack.Screen name="Tabs" component={TabStackScreens} />
           <AppStack.Screen name="Touch" component={TouchScreen} />
           <AppStack.Screen name="Pin" component={PinScreen} />
-          <AppStack.Screen name="Home" component={HomeScreen} />
+          <AppStack.Screen name="Tabs" component={TabStackScreens} />
         </AppStack.Navigator>
       </NavigationContainer>
     </>

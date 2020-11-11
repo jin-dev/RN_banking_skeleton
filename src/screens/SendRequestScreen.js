@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import NumberPAd from '../components/NumberPad';
 import styled from 'styled-components';
 import Text from '../components/Text';
+import NumberPad from '../components/NumberPad';
 
 const SendRequestScreen = () => {
     const [amount, setAmount] = useState("0");
@@ -11,12 +11,11 @@ const SendRequestScreen = () => {
         return newAmount.toLocaleString("en-US", { style: "currency", currency: "USD"});
     };
 
-    const preeKey = (item, index) => {
+    const pressKey = (item, index) => {
         setAmount((prev) => {
             return index != 10 ? prev + item : prev.slice(0, prev.length - 1);
         });
     };
-
 
     return (
         <Container>
@@ -28,7 +27,28 @@ const SendRequestScreen = () => {
                 <Text title heavy>
                     {convertToDollars(amount)}
                 </Text>
+                <Text bold color="#727479">
+                    Choose amount to send
+                </Text>
             </Amount>
+
+            <User>
+                <ProfilePhoto source={require("../assets/images/test.png")} />
+                <UserDetails>
+                    <Text medium heavy>
+                        Jin
+                    </Text>
+                </UserDetails>
+                <Text>Edit</Text>
+            </User>
+
+            <Send>
+                <Text medium heavy>
+                    Send {convertToDollars(amount)} to Jin
+                </Text>
+            </Send>
+
+            <NumberPad onPress={pressKey} />
         </Container>
         
     )
@@ -40,15 +60,34 @@ const Container = styled.SafeAreaView`
 `
 
 const Amount = styled.View`
+    margin-top: 64px;
+    align-items: center;
 `;
 
-const User = styled.View``;
+const User = styled.View`
+    margin: 32px 16px;
+    flex-direction: row;
+    align-items: center;
+`;
 
-const ProfilePhoto = styled.Image``;
+const ProfilePhoto = styled.Image`
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+`;
 
-const UserDetails = styled.View``;
+const UserDetails = styled.View`
+    flex: 1;
+    margin: 0 16px;
+`;
 
-const Send = styled.TouchableOpacity``;
+const Send = styled.TouchableOpacity`
+    margin: 16px;
+    background-color: #5196f4;
+    padding: 16px 32px;
+    align-items: center;
+    border-radius: 12px;
+`;
 
 const StatusBar = styled.StatusBar``;
 
