@@ -1,9 +1,12 @@
 import React from 'react';
-import { View} from 'react-native';
+import { View, Dimensions } from 'react-native';
 import Text from '../components/Text';
 import styled from 'styled-components';
 import PurchaseData from "../../purchases";
 import purchases from '../../purchases';
+
+import { LineChart } from 'react-native-chart-kit';
+
 const HomeScreen = () => {
     
   
@@ -40,6 +43,40 @@ const HomeScreen = () => {
             <Text center black color="#727479">
                 Current Balance
             </Text>
+
+            <Chart>
+                <LineChart 
+                 data={{
+                    labels: ["May", "June", "July", "Aug", "Sept", "Oct"],
+                    datasets: [
+                        {
+                            data: [
+                                Math.random() * 10,
+                                Math.random() * 10,
+                                Math.random() * 10,
+                                Math.random() * 10,
+                                Math.random() * 10,
+                                Math.random() * 10,
+                            ],
+                        },
+                    ],
+                }}
+                    width={Dimensions.get("window").width}
+                    height={250}
+                    xAxisLabel="$"
+                    yAxisSuffix="k"
+                    chartConfig={{
+                        backgroundGradientFrom: "#1e1e1e",
+                        backgroundGradientTo: "#1e1e1e",
+                        color: (opacity = 1) => `rgba(81, 150, 244, ${opacity})`,
+                        labelColor: () => `rgba(255, 255, 255, 0.2)`,
+                        strokeWidth: 3,
+                    }}
+                    withVerticalLines={false}
+                    withHorizontalLabels={false}
+                    besizer
+                />
+            </Chart>
         
             <Purchases ListHeaderComponent={
                 <>
@@ -118,6 +155,10 @@ const Purchase = styled.View`
     padding-bottom: 12px;
     margin-bottom: 12px;
     
+`;
+
+const Chart = styled.View`
+    margin: 32px 0;
 `;
 
 const PurchaseInfo = styled.View``;
